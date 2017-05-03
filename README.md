@@ -4,9 +4,7 @@
 Includes the following device(s):
 
  * EZ Motion+ 3 in 1
- * Homeseer HMS100
-
-
+ 
 ----------
 
 
