@@ -3,7 +3,7 @@
   "name": {
     "en": "Express Controls"
   },
-  "version": "0.0.5",
+  "version": "0.0.6",
   "compatibility": ">=1.0.0",
   "category": [
     "appliances",
