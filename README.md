@@ -41,10 +41,8 @@ Next on the list is
 
 ###### CREDITS:
 
-Please note that ***Jilles Miedema*** started developing an app for the HMS100 by HomeSeer. That app wasn't fully developed. It only included basic motion detection. It doesnt support the LUX nor the Temp. It didn't include the original manufacturer ***Express Controls*** device either. He also is going the path of developing a generic catch all zwave app, which this is not. He did however pull together all of the settings for this device. I did post on his thread to see if he was developing and it appears he is not.
+Please note that ***Jilles Miedema*** started developing an app for the HMS100 by HomeSeer. That app wasn't fully compatible with the original ***Express Controls EZ- Motion 3 in 1***. It only included basic motion detection. It doesnt support the LUX nor the Temp.. He did however pull together all of the settings for this device. He is developing the app according the needs of the HMS100. 
 
 ***Express Controls*** make other hardware that I will also add later. This is important because they are developing some interesting development boards and devices. 
 
 With that in mind, I decide it was better to create a new app for the actual manufacturer and have complete functionality of the device. I used his code as a base to understand the development. Then from there created new files with all of the excess trimmed and cleaned up.
-
-
