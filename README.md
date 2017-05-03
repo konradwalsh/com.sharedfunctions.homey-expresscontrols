@@ -6,7 +6,7 @@ I have created an app for Express Controls Devices.
 Right now I have the EZ-Motion+ 3 in 1 Device working
 
 
-##Changelog:
+Changelog:
 03 May 2017 - 0.0.5 - First Commit to Github
 
 Future Development:
