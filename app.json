@@ -19,10 +19,17 @@
     "large": "/assets/images/large.png",
     "small": "/assets/images/small.png"
   },
-
   "author": {
     "name": "Konrad Walsh",
     "email": "konradwalsh@gmail.com"
+  },
+  "contributors": {
+    "developers": [
+      {
+        "name": "Jilles Miedema",
+        "email": "nattelip@hotmail.com"
+      }
+    ]
   },
   "capabilities": {
     "measure_luminance_percentage": {
