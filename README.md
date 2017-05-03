@@ -19,6 +19,13 @@ Right now I have the **EZ-Motion+ 3 in 1** Device working
 
 ----------
 
+REQUESTS:
+
+Visit the [Discussion Forum](https://forum.athom.com/discussion/3146/express-controls-app-ez-motion-3-in-1-discussion-forum)
+
+
+----------
+
 
 ##### Changelog:
 
