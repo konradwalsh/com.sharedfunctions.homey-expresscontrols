@@ -12,8 +12,8 @@
     "climate"
   ],
   "description": {
-    "en": "some Zwave devices for Homey",
-    "nl": "sommige zwave apparaten voor Homey"
+    "en": "Express Controls Zwave devices for Homey",
+    "nl": "Express Controls Zwave apparaten voor Homey"
   },
   "images": {
     "large": "/assets/images/large.png",
@@ -46,7 +46,7 @@
     {
       "id": "EZ31",
       "name": {
-        "en": "EZMotion Multi Sensor 3-in-1"
+        "en": "EZ-Motion+ Multi Sensor 3-in-1"
       },
       "zwave": {
         "manufacturerId": 30,
@@ -57,7 +57,7 @@
           "image": "/drivers/EZ31/assets/learnmode.svg",
           "instruction": {
             "en": "Press the Blue Z-Wave button on the side of your Multi Sensor",
-            "nl": "Druk op de Z-Wave knop op de Multi Sensor"
+            "nl": "Druk op de Bleu Z-Wave knop op de Multi Sensor"
           }
         },
         "associationGroups": [
@@ -367,7 +367,7 @@
           {
             "name": "device",
             "type": "device",
-            "filter": "driver_uri=homey:app:com.konradwalsh.zwave&driver_id=EZ31"
+            "filter": "driver_uri=homey:app:com.sharedfunctions.homey-expresscontrols&driver_id=EZ31"
           },
           {
             "name": "temperature2",
