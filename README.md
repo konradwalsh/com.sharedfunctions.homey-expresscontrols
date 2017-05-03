@@ -1,5 +1,5 @@
 # Express Controls Zwave Devices
-![Express Controls Logo](https://raw.githubusercontent.com/konradwalsh/com.sharedfunctions.homey-expresscontrols/master/assets/images/small.png)
+![Express Controls Logo](https://raw.githubusercontent.com/konradwalsh/com.sharedfunctions.homey-expresscontrols/master/assets/images/large.png)
 
 Includes the following device(s):
 
@@ -28,12 +28,13 @@ Right now I have the **EZ-Motion+ 3 in 1** Device working
 ----------
 
 
-### Future Development:
+#### Future Development:
 
-Next on the list is all the appropriate Flow Cards
-After that, Mobile Cards
-Then other devices
+Next on the list is 
 
+ -  Flow Cards 
+ - Mobile Cards 
+ - Then other devices by Express Controls
 
 ----------
 
