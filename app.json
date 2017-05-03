@@ -3,7 +3,7 @@
   "name": {
     "en": "Express Controls"
   },
-  "version": "0.0.7",
+  "version": "0.0.8",
   "compatibility": ">=1.0.0",
   "category": [
     "appliances",
@@ -28,6 +28,10 @@
       {
         "name": "Jilles Miedema",
         "email": "nattelip@hotmail.com"
+      },
+	   {
+         "name": "Konrad Walsh",
+    "email": "konradwalsh@gmail.com"
       }
     ]
   },
