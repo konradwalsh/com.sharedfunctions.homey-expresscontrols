@@ -1,4 +1,5 @@
 # Express Controls Zwave Devices
+![Express Controls Logo](https://raw.githubusercontent.com/konradwalsh/com.sharedfunctions.homey-expresscontrols/master/assets/images/large.png)
 
 Includes the following device(s):
 
