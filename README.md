@@ -5,26 +5,36 @@ Includes the following device(s):
  * EZ Motion+ 3 in 1
  * Homeseer HMS100
 
+
+----------
+
+
 I have created an app for Express Controls Devices.
 
 Right now I have the **EZ-Motion+ 3 in 1** Device working
 
 ![alt text](https://raw.githubusercontent.com/konradwalsh/com.sharedfunctions.homey-expresscontrols/master/drivers/EZ31/images/small.jpg "EZ Motion + 3 in 1")
 
+
+----------
+
+
 ##### Changelog:
 
 03 May 2017 - 0.0.5 - First Commit to Github
 
 
+----------
 
-##### Future Development:
+
+### Future Development:
 
 Next on the list is all the appropriate Flow Cards
 After that, Mobile Cards
 Then other devices
 
 
-
+----------
 
 
 ###### CREDITS:
