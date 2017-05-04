@@ -35,19 +35,12 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
 			}
 		},
 		alarm_motion: {
-			//command_class: 'COMMAND_CLASS_SENSOR_BINARY',
-			//command_get: 'SENSOR_BINARY_GET',
-			//command_report: 'SENSOR_BINARY_REPORT',
-			//command_report_parser: report => report['Sensor Value'] === 'detected an event'
-		
- //#region  basic
-                    command_class: 'COMMAND_CLASS_BASIC',
+		            command_class: 'COMMAND_CLASS_BASIC',
                     command_report: 'BASIC_SET',
                     command_report_parser: report => {
                     report['Value'] > 0
                   return  (report['Value'] > 0)
-                    },
-					//#endregion
+                    },			
                  'pollInterval': "poll_interval",
                   'getOnWakeUp': true,                
             },
@@ -77,7 +70,6 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
                             if (node &&
                                 node.hasOwnProperty('state'))
                              {
-
                                 util.log('  node 2 ', util.inspect(node.state, false, null));
                                  celsiusTemp  = Number(((report['Sensor Value (Parsed)'] - 32) / 1.8).toFixed(1))
                                 util.log('celsiustemp  ', celsiusTemp)
@@ -103,7 +95,7 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
 		},
 		measure_luminance:
                 {                  
-                    multiChannelNodeId: 2,
+                   // multiChannelNodeId: 2,
                     command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
                     command_get: 'SENSOR_MULTILEVEL_GET',
                     command_get_parser: () => {
@@ -130,7 +122,7 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
             },
 	},
 
-            settings : {                       // snsitivity default - 56  range 0 -- 1   0 255  -56 255-56 199
+            settings : {                       // sensitivity default - 56  range 0 -- 1   0 255  -56 255-56 199
                 1: {
                     index: 1,
                     size: 1
