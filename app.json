@@ -3,7 +3,7 @@
   "name": {
     "en": "Express Controls"
   },
-  "version": "0.0.8",
+  "version": "0.1.0",
   "compatibility": ">=1.0.0",
   "category": [
     "appliances",
@@ -35,25 +35,7 @@
       }
     ]
   },
-  "capabilities": {
-    "measure_luminance_percentage": {
-      "type": "number",
-      "title": {
-        "en": "LUX %",
-        "nl": "LUX %"
-      },
-      "desc": {
-        "en": "lux in percentage",
-        "nl": "luminance in procent"
-      },
-      "units": {
-        "en": "%",
-        "nl": "%"
-      },
-      "getable": true,
-      "setable": false
-    }
-  },
+  
   "drivers": [
     {
       "id": "EZ31",
@@ -90,27 +72,7 @@
         "measure_temperature",
         "measure_luminance"
       ],
-	        "mobile": {
-        "components": [
-
-          {
-            "id": "sensor",
-            "capabilities": [
-              "measure_battery",
-              "alarm_motion",
-              "measure_luminance_percentage",
-              "measure_temperature"
-            ],
-            "options": {
-              "icons": {
-                "measure_luminance_percentage": "./drivers/EZ31/assets/measure_luminance.svg"
-
-              }
-            }
-          }
-
-        ]
-      },
+	     
 
       "images": {
         "large": "/drivers/EZ31/assets/images/large.jpg",
@@ -179,7 +141,7 @@
             }
           ],
           "hint": {
-            "en": "Device Led On or Off -1 and 1 are on 0 is off"
+            "en": "Device Led On or Off. | For ON :-1 and 1 | For OFF: 0"
           }
         },
         {

@@ -101,23 +101,33 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
                             return celsiusTemp  //(report['Sensor Value (Parsed)'] - 32) / 1.8   return report['Sensor Value (Parsed)'];
 			}
 		},
-		measure_luminance: {
-			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
-			command_get: 'SENSOR_MULTILEVEL_GET',
-			command_get_parser: () => ({
-				'Sensor Type': 'Luminance (version 1)',
-				'Properties1': {
-					'Scale': 1,
-				},
-			}),
-			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: report => {
-				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
-					if (report['Sensor Type'] === 'Luminance (version 1)') return report['Sensor Value (Parsed)'];
-				}
-				return null;
-			}
-		}
+		measure_luminance:
+                {                  
+                    multiChannelNodeId: 2,
+                    command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+                    command_get: 'SENSOR_MULTILEVEL_GET',
+                    command_get_parser: () => {
+                        return {
+                            'Sensor Type': 'Luminance (version 1)',
+                            'Properties1': {
+                                'Scale': 0
+                            }
+                        };
+                    },
+                    // version 5 - 10
+                    command_report: 'SENSOR_MULTILEVEL_REPORT',
+                    command_report_parser: report => {
+                        if (report['Sensor Type'] === 'Luminance (version 1)' &&
+                            report.hasOwnProperty("Level") &&
+                            report.Level.hasOwnProperty("Scale") &&
+                            report.Level.Scale === 0)
+                            return report['Sensor Value (Parsed)'];
+                    },
+                    'getOnWakeUp': true,
+                    'pollInterval': "poll_interval"
+                
+
+            },
 	},
 
             settings : {                       // snsitivity default - 56  range 0 -- 1   0 255  -56 255-56 199
