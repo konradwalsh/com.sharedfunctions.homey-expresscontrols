@@ -35,26 +35,70 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
 			}
 		},
 		alarm_motion: {
-			command_class: 'COMMAND_CLASS_SENSOR_BINARY',
-			command_get: 'SENSOR_BINARY_GET',
-			command_report: 'SENSOR_BINARY_REPORT',
-			command_report_parser: report => report['Sensor Value'] === 'detected an event'
-		},
+			//command_class: 'COMMAND_CLASS_SENSOR_BINARY',
+			//command_get: 'SENSOR_BINARY_GET',
+			//command_report: 'SENSOR_BINARY_REPORT',
+			//command_report_parser: report => report['Sensor Value'] === 'detected an event'
+		
+ //#region  basic
+                    command_class: 'COMMAND_CLASS_BASIC',
+                    command_report: 'BASIC_SET',
+                    command_report_parser: report => {
+                    report['Value'] > 0
+                  return  (report['Value'] > 0)
+                    },
+					//#endregion
+                 'pollInterval': "poll_interval",
+                  'getOnWakeUp': true,                
+            },
+		
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
 			command_get_parser: () => ({
 				'Sensor Type': 'Temperature (version 1)',
 				'Properties1': {
-					'Scale': 0,
+					'Scale': 1,
 				},
 			}),
-			command_report: 'SENSOR_MULTILEVEL_REPORT',
-			command_report_parser: report => {
-				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
-					if (report['Sensor Type'] === 'Temperature (version 1)') return report['Sensor Value (Parsed)'];
-				}
-				return null;
+			  command_report: 'SENSOR_MULTILEVEL_REPORT',
+             command_report_parser: (report, node) => {
+				let  celsiusTemp 
+
+                        if (report['Sensor Type'] === 'Temperature (version 1)' &&
+                            report.hasOwnProperty("Level") &&
+                            report.Level.hasOwnProperty("Scale") &&
+                            report.Level.Scale === 1)
+							
+                           util.log('  node 1 state ', util.inspect(node.state, false, null));
+                            util.log('  node 1 dd ', util.inspect(node.device_data, false, null));
+                          
+
+                            if (node &&
+                                node.hasOwnProperty('state'))
+                             {
+
+                                util.log('  node 2 ', util.inspect(node.state, false, null));
+                                 celsiusTemp  = Number(((report['Sensor Value (Parsed)'] - 32) / 1.8).toFixed(1))
+                                util.log('celsiustemp  ', celsiusTemp)
+                                const token = {
+                                    "temp": (report['Sensor Value (Parsed)']-32) /1.8
+                                };
+
+                                util.log('oldTemp', oldTemp);
+                                newTemp = celsiusTemp
+
+                                if ( oldTemp != -100) {
+                                    const consecutiveTemps = { 'oldTemp': oldTemp, 'newTemp': newTemp }
+                                    Homey.manager('flow').triggerDevice('hms100_lower', null , consecutiveTemps, node.device_data, function (err, result) {
+                                        if (err) return Homey.error(err);
+										});
+                                }
+                            }
+
+                            oldTemp = celsiusTemp;
+                          
+                            return celsiusTemp  //(report['Sensor Value (Parsed)'] - 32) / 1.8   return report['Sensor Value (Parsed)'];
 			}
 		},
 		measure_luminance: {
