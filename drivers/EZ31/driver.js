@@ -6,22 +6,11 @@ let oldTemp = -100; // to compare with new temp   in trigger
 let newTemp = -100;  // measured temp 
 // http://www.cd-jackson.com/zwave_device_uploads/355/9-Multisensor-6-V1-07.pdf
 module.exports = new ZwaveDriver (path.basename(__dirname), {
-
-
     init: (devices_data, callback) => {
-        util.log('this is init driver');
-       CommandClass.COMMAND_CLASS_CONFIGURATION.CONFIGURATION_GET( {'Parameter Number': 7}, null );
-
-            //    CommandClass.COMMAND_CLASS_CONFIGURATION.CONFIGURATION_GET({ 'Parameter Number': 3 })
-
-
-                //    command_class = 'COMMAND_CLASS_CONFIGURATION',
-                //        command_get = 'CONFIGURATION_GET',
-                //            command_get_parser = () => ({
-                //                'Parameter Number': 3
-                //            }),
-                //                command_report = 'CONFIGURATION_REPORT'
-            },
+                 util.log('this is init driver');
+                 CommandClass.COMMAND_CLASS_CONFIGURATION.CONFIGURATION_GET( {'Parameter Number': 7}, null 
+	     );                
+	   },
 
         capabilities: {
 		measure_battery: {
@@ -95,8 +84,7 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
 		},
 		measure_luminance:
                 {                  
-                   // multiChannelNodeId: 2,
-                    command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
+                   command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
                     command_get: 'SENSOR_MULTILEVEL_GET',
                     command_get_parser: () => {
                         return {
@@ -158,15 +146,6 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
                    size: 1
                }
             }
-
-
-
-
-
-
-
-
-
 }); // driver
 
 

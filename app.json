@@ -3,7 +3,7 @@
   "name": {
     "en": "Express Controls"
   },
-  "version": "0.1.0",
+  "version": "0.1.5",
   "compatibility": ">=1.0.0",
   "category": [
     "appliances",
@@ -72,7 +72,7 @@
         "measure_temperature",
         "measure_luminance"
       ],
-	     
+
 
       "images": {
         "large": "/drivers/EZ31/assets/images/large.jpg",
