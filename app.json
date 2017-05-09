@@ -235,13 +235,13 @@
           "label": {
             "en": "7. Temperature Offset"
           },
-          "value": -127,
+          "value": 0,
           "attr": {
             "min": -127,
-            "max": 128
+            "max": 127
           },
           "hint": {
-            "en": "adjustment temp factory set"
+            "en": "adjustment temp factory set 0-127 is minus | 128 -255 is Positive"
           }
         },
         {
