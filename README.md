@@ -12,7 +12,7 @@ I have created an app for Express Controls Devices.
 
 Right now I have the **EZ-Motion+ 3 in 1** Device working
 
-![alt text](https://raw.githubusercontent.com/konradwalsh/com.sharedfunctions.homey-expresscontrols/master/drivers/EZ31/images/small.jpg "EZ Motion + 3 in 1")
+![EZ Motion + 3 in 1](https://raw.githubusercontent.com/konradwalsh/com.sharedfunctions.homey-expresscontrols/master/drivers/EZ31/assets/images/small.jpg "EZ Motion + 3 in 1")
 
 
 ----------
