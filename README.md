@@ -27,7 +27,9 @@ Visit the [Discussion Forum](https://forum.athom.com/discussion/3146/express-con
 
 ##### Changelog:
 09 May 2017 - 0.2.0 - Fixes for Celcius Calculations
+
 06 May 2017 - 0.1.0 - Store Approved Submission
+
 03 May 2017 - 0.0.5 - First Commit to Github
 
 
