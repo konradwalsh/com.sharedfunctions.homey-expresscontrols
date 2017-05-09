@@ -3,11 +3,7 @@
   "name": {
     "en": "Express Controls"
   },
-<<<<<<< HEAD
   "version": "0.2.0",
-=======
-  "version": "0.1.5",
->>>>>>> Tidy up
   "compatibility": ">=1.0.0",
   "category": [
     "appliances",
