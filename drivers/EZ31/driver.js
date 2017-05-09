@@ -33,7 +33,6 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
                  'pollInterval': "poll_interval",
                   'getOnWakeUp': true,                
             },
-		
 		measure_temperature: {
 			command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
 			command_get: 'SENSOR_MULTILEVEL_GET',
@@ -43,45 +42,15 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
 					'Scale': 1,
 				},
 			}),
-			  command_report: 'SENSOR_MULTILEVEL_REPORT',
-             command_report_parser: (report, node) => {
-				let  celsiusTemp 
-
-                        if (report['Sensor Type'] === 'Temperature (version 1)' &&
-                            report.hasOwnProperty("Level") &&
-                            report.Level.hasOwnProperty("Scale") &&
-                            report.Level.Scale === 1)
-							
-                           util.log('  node 1 state ', util.inspect(node.state, false, null));
-                            util.log('  node 1 dd ', util.inspect(node.device_data, false, null));
-                          
-
-                            if (node &&
-                                node.hasOwnProperty('state'))
-                             {
-                                util.log('  node 2 ', util.inspect(node.state, false, null));
-                                 celsiusTemp  = Number(((report['Sensor Value (Parsed)'] - 32) / 1.8).toFixed(1))
-                                util.log('celsiustemp  ', celsiusTemp)
-                                const token = {
-                                    "temp": (report['Sensor Value (Parsed)']-32) /1.8
-                                };
-
-                                util.log('oldTemp', oldTemp);
-                                newTemp = celsiusTemp
-
-                                if ( oldTemp != -100) {
-                                    const consecutiveTemps = { 'oldTemp': oldTemp, 'newTemp': newTemp }
-                                    Homey.manager('flow').triggerDevice('hms100_lower', null , consecutiveTemps, node.device_data, function (err, result) {
-                                        if (err) return Homey.error(err);
-										});
-                                }
-                            }
-
-                            oldTemp = celsiusTemp;
-                          
-                            return celsiusTemp  //(report['Sensor Value (Parsed)'] - 32) / 1.8   return report['Sensor Value (Parsed)'];
-			}
+			command_report: 'SENSOR_MULTILEVEL_REPORT',
+			command_report_parser: report => {
+				if (report.hasOwnProperty('Sensor Type') && report.hasOwnProperty('Sensor Value (Parsed)')) {
+					if (report['Sensor Type'] === 'Temperature (version 1)') return Number(((report['Sensor Value (Parsed)'] - 32) / 1.8).toFixed(1));
+				}
+				return null;
+			}			
 		},
+
 		measure_luminance:
                 {                  
                    command_class: 'COMMAND_CLASS_SENSOR_MULTILEVEL',
@@ -94,7 +63,6 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
                             }
                         };
                     },
-                    // version 5 - 10
                     command_report: 'SENSOR_MULTILEVEL_REPORT',
                     command_report_parser: report => {
                         if (report['Sensor Type'] === 'Luminance (version 1)' &&
@@ -147,8 +115,3 @@ module.exports = new ZwaveDriver (path.basename(__dirname), {
                }
             }
 }); // driver
-
-
-
-
-
